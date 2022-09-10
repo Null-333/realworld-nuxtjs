@@ -1,14 +1,27 @@
 [
   {
     "path": "/",
-    "name": "layout",
     "component": "/Users/helen/repo/realworld-nuxtjs/pages/layout",
     "children": [
       {
         "path": "",
         "name": "home",
-        "component": "/Users/helen/repo/realworld-nuxtjs/pages/home"
+        "component": "/Users/helen/repo/realworld-nuxtjs/pages/home",
+        "_name": "_5740b76e"
+      },
+      {
+        "path": "/register",
+        "name": "register",
+        "component": "/Users/helen/repo/realworld-nuxtjs/pages/login",
+        "_name": "_dde3028c"
+      },
+      {
+        "path": "/login",
+        "name": "login",
+        "component": "/Users/helen/repo/realworld-nuxtjs/pages/login",
+        "_name": "_dde3028c"
       }
-    ]
+    ],
+    "_name": "_dff7540e"
   }
 ]
