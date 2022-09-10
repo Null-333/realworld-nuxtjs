@@ -1,9 +1,14 @@
 [
   {
-    "name": "index",
     "path": "/",
-    "component": "/Users/helen/repo/realworld-nuxtjs/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_eb68bd8a"
+    "name": "layout",
+    "component": "/Users/helen/repo/realworld-nuxtjs/pages/layout",
+    "children": [
+      {
+        "path": "",
+        "name": "home",
+        "component": "/Users/helen/repo/realworld-nuxtjs/pages/home"
+      }
+    ]
   }
 ]
