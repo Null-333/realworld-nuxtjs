@@ -2,7 +2,6 @@
   <div class="auth-page">
     <div class="container page">
         <div class="row">
-
             <div class="col-md-6 offset-md-3 col-xs-12">
                 <h1 class="text-xs-center">{{isLogin ? 'Sign in' : 'Sign up'}}</h1>
                 <p class="text-xs-center">
@@ -11,7 +10,11 @@
                 </p>
 
                 <ul class="error-messages">
-                    <li>That email is already taken</li>
+                  <template v-for="(value, field) in errors">
+                    <li v-for="(error, i) in value" :key="i">
+                      {{ field }} {{ error }}
+                    </li>
+                  </template>
                 </ul>
 
                 <form @submit.prevent="onSubmit">
@@ -64,17 +67,23 @@ export default {
         email: '',
         password: '',
       },
+      errors: {},
     };
   },
   methods: {
     async onSubmit() {
-      const { data } = await login({
-        user: this.user,
-      });
-      // TODO: 保存用户登录状态
-      console.log('====-71', data);
-      // 跳转到首页
-      this.$router.push('/');
+      try {
+        const { data } = await login({
+          user: this.user,
+        });
+        console.log('====-71', data);
+        // TODO: 保存用户登录状态
+        // 跳转到首页
+        this.$router.push('/');
+      } catch (e) {
+        console.dir(e);
+        this.errors = e.response.data.errors;
+      }
     }
   }
 }
