@@ -6,23 +6,29 @@
           <ul class="nav navbar-nav pull-xs-right">
               <li class="nav-item">
                   <!-- Add "active" class when you're on that page" -->
-                  <a class="nav-link active" href="">Home</a>
+                  <nuxt-link class="nav-link active" to="/">Home</nuxt-link>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="">
-                      <i class="ion-compose"></i>&nbsp;New Article
-                  </a>
+                  <nuxt-link class="nav-link" to="/editor">
+                    <i class="ion-compose"></i>&nbsp;New Article
+                  </nuxt-link>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="">
+                  <nuxt-link class="nav-link" to="/settings">
                       <i class="ion-gear-a"></i>&nbsp;Settings
-                  </a>
+                  </nuxt-link>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="">Sign in</a>
+                  <nuxt-link class="nav-link" to="/login">Sign in</nuxt-link>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="">Sign up</a>
+                <nuxt-link class="nav-link" to="/register">Sign up</nuxt-link>
+              </li>
+              <li class="nav-item">
+                <nuxt-link class="nav-link ng-binding" to="/profile/1" ui-sref-active="active" ui-sref="app.profile.main({ username: $ctrl.currentUser.username })">
+                  <img src="https://wx4.sinaimg.cn/mw2000/7709ac50gy1gc20cs6n0wj20u0140qe3.jpg" class="user-pic">
+                  _Helen_
+                </nuxt-link>
               </li>
           </ul>
       </div>
