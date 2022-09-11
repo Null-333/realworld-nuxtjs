@@ -16,21 +16,26 @@
 
                 <form @submit.prevent="onSubmit">
                     <fieldset class="form-group" v-if="!isLogin">
-                        <input class="form-control form-control-lg" type="text" placeholder="Your Name">
+                        <input 
+                          class="form-control form-control-lg" 
+                          type="text" 
+                          placeholder="Your Name">
                     </fieldset>
                     <fieldset class="form-group">
                         <input 
                           v-model="user.email"
                           class="form-control form-control-lg" 
-                          type="text" 
-                          placeholder="Email">
+                          type="email" 
+                          placeholder="Email"
+                          required>
                     </fieldset>
                     <fieldset class="form-group">
                         <input 
                           v-model="user.password"
                           class="form-control form-control-lg" 
                           type="password" 
-                          placeholder="Password">
+                          placeholder="Password"
+                          required>
                     </fieldset>
                     <button class="btn btn-lg btn-primary pull-xs-right">
                         {{isLogin ? 'Sign in' : 'Sign up'}}
