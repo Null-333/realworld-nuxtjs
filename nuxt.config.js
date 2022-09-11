@@ -1,5 +1,6 @@
 module.exports = {
   router: {
+    linkExactActiveClass: 'active',
     extendRoutes(routes, resolve) {
       // 清空原始配置
       routes.splice(0);
