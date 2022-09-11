@@ -19,10 +19,12 @@
 
                 <form @submit.prevent="onSubmit">
                     <fieldset class="form-group" v-if="!isLogin">
-                        <input 
+                        <input
+                        v-model="user.username" 
                           class="form-control form-control-lg" 
                           type="text" 
-                          placeholder="Your Name">
+                          placeholder="Your Name"
+                          required>
                     </fieldset>
                     <fieldset class="form-group">
                         <input 
@@ -52,7 +54,7 @@
 </template>
 
 <script>
-import { login } from '@/api/user';
+import { login, register } from '@/api/user';
 
 export default {
   name: 'LoginIndex',
@@ -64,6 +66,7 @@ export default {
   data() {
     return {
       user: {
+        username: '',
         email: '',
         password: '',
       },
@@ -73,9 +76,13 @@ export default {
   methods: {
     async onSubmit() {
       try {
-        const { data } = await login({
-          user: this.user,
-        });
+        const { data } = this.isLogin ?
+          await login({
+            user: this.user,
+          }) :
+          await register({
+            user: this.user,
+          });
         console.log('====-71', data);
         // TODO: 保存用户登录状态
         // 跳转到首页
