@@ -2621,6 +2621,11 @@ cookie@^0.3.1:
   resolved "https://registry.npmmirror.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
   integrity sha512-+IJOX0OqlHCszo2mBUq+SrEbCj6w7Kpffqx60zYbPTFaO4+yYgRjHwcZNpWvaTylDHaV7PPmBHzSecZiMhtPgw==
 
+cookieparser@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmmirror.com/cookieparser/-/cookieparser-0.1.0.tgz#ea12cb1085c174f3167faeaf7985f79abe671d0e"
+  integrity sha512-+eHibHast+i+CEoFMQ7y9e4l/SBdWTHhWH6yidaPCYW2S/PmxRfbT1fAle/5WvbzQ6u092qX8XvfmICNtVestQ==
+
 copy-concurrently@^1.0.0:
   version "1.0.5"
   resolved "https://registry.npmmirror.com/copy-concurrently/-/copy-concurrently-1.0.5.tgz#92297398cae34937fcafd6ec8139c18051f0b5e0"
@@ -4501,6 +4506,11 @@ jiti@^1.9.2:
   version "1.15.0"
   resolved "https://registry.npmmirror.com/jiti/-/jiti-1.15.0.tgz#cfa7ebfe4a60d77cf3bd4f8630cd99225b638417"
   integrity sha512-cClBkETOCVIpPMjX3ULlivuBvmt8l2Xtz+SHrULO06OqdtV0QFR2cuhc4FJnXByjUUX4CY0pl1nph0aFh9D3yA==
+
+js-cookie@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmmirror.com/js-cookie/-/js-cookie-3.0.1.tgz#9e39b4c6c2f56563708d7d31f6f5f21873a92414"
+  integrity sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==
 
 js-tokens@^4.0.0:
   version "4.0.0"

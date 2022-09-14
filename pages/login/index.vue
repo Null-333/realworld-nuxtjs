@@ -56,6 +56,8 @@
 <script>
 import { login, register } from '@/api/user';
 
+const Cookie = process.client ? require('js-cookie') : undefined;
+
 export default {
   name: 'LoginIndex',
   computed: {
@@ -83,8 +85,9 @@ export default {
           await register({
             user: this.user,
           });
-        console.log('====-71', data);
-        // TODO: 保存用户登录状态
+          // 保存用户登录状态
+          this.$store.commit('setUser', data.user);
+          Cookie.set('user', JSON.stringify(data.user));
         // 跳转到首页
         this.$router.push('/');
       } catch (e) {
