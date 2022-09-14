@@ -8,28 +8,33 @@
                   <!-- Add "active" class when you're on that page" -->
                   <nuxt-link exact class="nav-link" to="/">Home</nuxt-link>
               </li>
-              <li class="nav-item">
-                  <nuxt-link class="nav-link" to="/editor">
-                    <i class="ion-compose"></i>&nbsp;New Article
+              <template v-if="user">
+                <li class="nav-item">
+                    <nuxt-link class="nav-link" to="/editor">
+                      <i class="ion-compose"></i>&nbsp;New Article
+                    </nuxt-link>
+                </li>
+                <li class="nav-item">
+                    <nuxt-link class="nav-link" to="/settings">
+                        <i class="ion-gear-a"></i>&nbsp;Settings
+                    </nuxt-link>
+                </li>
+                <li class="nav-item">
+                  <nuxt-link class="nav-link ng-binding" to="/profile/1" ui-sref-active="active" ui-sref="app.profile.main({ username: $ctrl.currentUser.username })">
+                    <!-- <img src="https://wx4.sinaimg.cn/mw2000/7709ac50gy1gc20cs6n0wj20u0140qe3.jpg" class="user-pic"> -->
+                    <img :src="user.image" class="user-pic">
+                    {{ user.username }}
                   </nuxt-link>
-              </li>
-              <li class="nav-item">
-                  <nuxt-link class="nav-link" to="/settings">
-                      <i class="ion-gear-a"></i>&nbsp;Settings
-                  </nuxt-link>
-              </li>
-              <li class="nav-item">
-                  <nuxt-link class="nav-link" to="/login">Sign in</nuxt-link>
-              </li>
-              <li class="nav-item">
-                <nuxt-link class="nav-link" to="/register">Sign up</nuxt-link>
-              </li>
-              <li class="nav-item">
-                <nuxt-link class="nav-link ng-binding" to="/profile/1" ui-sref-active="active" ui-sref="app.profile.main({ username: $ctrl.currentUser.username })">
-                  <img src="https://wx4.sinaimg.cn/mw2000/7709ac50gy1gc20cs6n0wj20u0140qe3.jpg" class="user-pic">
-                  _Helen_
-                </nuxt-link>
-              </li>
+                </li>
+              </template>
+              <template v-else>
+                <li class="nav-item">
+                    <nuxt-link class="nav-link" to="/login">Sign in</nuxt-link>
+                </li>
+                <li class="nav-item">
+                  <nuxt-link class="nav-link" to="/register">Sign up</nuxt-link>
+                </li>
+              </template>
           </ul>
       </div>
     </nav>
@@ -46,9 +51,14 @@
 </template>
 
 <script>
-export default {
+  import { mapState } from 'vuex';
 
-}
+  export default {
+    name: 'LayoutIndex',
+    computed: {
+      ...mapState(['user']),
+    }
+  }
 </script>
 
 <style>
