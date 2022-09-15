@@ -96,16 +96,20 @@
   export default {
     name: 'HomeIndex',
     async asyncData() {
-      const { data } = await getArticles({
-        limit: 10,
-        offset: 0,
-      });
-      const { data: tagData } = await getTags();
+      const [articleRes, tagsRes] = await Promise.all([
+        getArticles({
+          limit: 10,
+          offset: 0,
+        }),
+        getTags()
+      ]);
+      const { articles, articlesCount } = articleRes.data;
+      const { tags } = tagsRes.data.tags;
 
       return {
-        articles: data.articles,
-        articlesCount: data.articlesCount,
-        tags: tagData.tags,
+        articles,
+        articlesCount,
+        tags,
       };
     },
   }
