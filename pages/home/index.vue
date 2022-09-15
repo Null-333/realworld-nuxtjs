@@ -104,7 +104,7 @@
         getTags()
       ]);
       const { articles, articlesCount } = articleRes.data;
-      const { tags } = tagsRes.data.tags;
+      const { tags } = tagsRes.data;
 
       return {
         articles,
