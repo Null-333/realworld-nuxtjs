@@ -75,12 +75,17 @@
                       <p>Popular Tags</p>
 
                       <div class="tag-list">
-                          <a
+                          <nuxt-link
                             v-for="item in tags"
                             :key="item" 
-                            href="" 
+                            :to="{
+                              name: 'home',
+                              query: {
+                                tag: item,
+                              }
+                            }"
                             class="tag-pill tag-default"
-                          >{{ item }}</a>
+                          >{{ item }}</nuxt-link>
                       </div>
                   </div>
               </div>
@@ -95,11 +100,10 @@
 
   export default {
     name: 'HomeIndex',
-    async asyncData() {
+    async asyncData({ route }) {
       const [articleRes, tagsRes] = await Promise.all([
         getArticles({
-          limit: 10,
-          offset: 0,
+          tag: route.query.tag,
         }),
         getTags()
       ]);
@@ -112,6 +116,7 @@
         tags,
       };
     },
+    watchQuery: ['tag'],
   }
 </script>
 
